@@ -50,10 +50,16 @@
   var random_reason = function() {
     return reasons[Math.floor(Math.random() * reasons.length)]
   };
+  var placeholder =
 
   $().ready(function() {
     $("#trigger").click(function(){
-      $("#output").html(random_reason());
+      $("#output").css({opacity: 0.04});
+
+      window.setTimeout(function() {
+        $("#output").html(random_reason()).css({opacity: 1.0});
+      }, 180);
+
       $("#trigger").text("FAIL AGAIN");
     });
   });
@@ -62,30 +68,38 @@
 
 <style type="text/css">
   body {
-    background: #333;
+    background-color: #333;
+    font-size: 400%;
   }
   .container {
-    width: 88%;
-    margin: 2em auto;
+    width: 89%;
+    margin: auto;
     text-align: center;
   }
   #output {
     min-height: 10em;
     margin: 1.4em auto;
     padding: 1.2em;
-    font-size: 200%;
-    background: #eee;
+    background-color: #ccc;
+    color: #111;
+    line-height: 1.4em;
     box-sizing: border-box;
     vertical-align: middle;
+    transition: opacity .2s ease-in-out;
   }
   #trigger {
     height: 6em;
     width: 100%;
-    font-family: 'Droid Serif',serif;
+    font-size: 100%;
+    color: #222;
     font-weight: bold;
     letter-spacing: .14rem;
-    font-size: 180%;
     background-color: #777;
+    transition-duration: .2s;
+  }
+  #trigger:active {
+    transition-duration: .2s;
+    background-color: crimson;
   }
 </style>
 </head>
