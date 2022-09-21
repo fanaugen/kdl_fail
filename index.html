@@ -1,11 +1,102 @@
+<head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
 
+  var reasons = [
+  "You are caught on a piece of furniture and unable to free yourself for minutes.",
+  "The Doctor speaks to you about a subject that on reflection makes no sense.",
+  "You cannot think over the sound of a passing train that no one else can hear. ",
+  "A flock of bats engulfs your head. You are powerless to evade them.",
+  "You have somehow mistaken a child’s toy for Doctor Lucky. ",
+  "The burden of a wasted life weighs heavy on your brow. You miss. ",
+  "You are overcome with a sense of affection for the old man. It will pass.",
+  "The Doctor wheels around and accidentally hits you in the head with a shovel. ",
+  "Your feet stick to the floor. The Doctor escapes.",
+  "For a moment you believe yourself to be someone else. It is alarming.",
+  "Without warning, the Doctor begins to spin. It drives you to distraction.",
+  "You are stupid, stupid, stupid.",
+  "Suddenly you find yourself unable to recall whether a straight beats a flush.",
+  "What you thought was a weapon was only a banana. You abandon the peel.",
+  "The Doctor disappears from your path, ducking randomly here and there.",
+  "An allergy to dust mites gets the better of you.",
+  "As you approach the Doctor, you tumble through a trap door.",
+  "A wizened kung fu master intervenes on the Doctor’s behalf, then vanishes.",
+  "You forget.",
+  "While sneaking up on the Doctor, you are overcome by the urge to sing.",
+  "Loose ceiling tiles crash to the floor as you approach the Doctor. He escapes.",
+  "Your attack passes through the Doctor as if he were not even there.",
+  "The Doctor inexplicably vanishes in a cloud of feathers.",
+  "The Doctor turns to you, waxing rhapsodic on his recent polar adventure.",
+  "Your cares melt away as distant strains of Mozart drift through the mansion.",
+  "You are frozen in place by the garish melody of a passing ice cream truck.",
+  "A door frame hits you squarely in the head. The Doctor moves on.",
+  "You slip on an out-of-place banana peel, hurtling hilariously into the air. ",
+  "Doctor Lucky pauses to examine his own thumbs. You are thrown off guard.",
+  "Doctor Lucky’s cat howls. You hate it more than him. The moment passes.",
+  "A drip of water. Is it rain? Another, and you slip, falling on your nose.",
+  "A sense of dread inhibits your every physical act.",
+  "Chattering mice distract you momentarily from your chosen course.",
+  "Suddenly, a pause; a thought; a shudder. Did you leave the iron on?",
+  "Doctor Lucky’s jacket conceals a well-placed deck of playing cards.",
+  "Your thoughts turn to a misspent youth.",
+  "You question your freshness.",
+  "The Doctor turns to you and asks you for the time. You are distracted.",
+  "In the darkness, a shadow. Another guest? You pause. The Doctor is gone.",
+  "Creaking floorboards. The trickery of shadows. Fate conspires against you.",
+  "“This tastes like rat poison! I love rat poison!”",
+  "A hint of regret stays your hand. It won’t last."
+  ];
+
+  var random_reason = function() {
+    return reasons[Math.floor(Math.random() * reasons.length)]
+  };
+
   $().ready(function() {
-    $("#output").html("<i>helllo</i>")
+    $("#trigger").click(function(){
+      $("#output").html(random_reason());
+      $("#trigger").text("FAIL AGAIN");
+    });
   });
 
 </script>
-<div id="output"></div>
-<h1>Why have I failed?</h1>
-<button id="trigger">FAIL</button>
+
+<style type="text/css">
+  body {
+    background: #333;
+  }
+  .container {
+    width: 88%;
+    margin: 2em auto;
+    text-align: center;
+  }
+  #output {
+    min-height: 10em;
+    margin: 1.4em auto;
+    padding: 1.2em;
+    font-size: 200%;
+    background: #eee;
+    box-sizing: border-box;
+    vertical-align: middle;
+  }
+  #trigger {
+    height: 6em;
+    width: 100%;
+    font-family: 'Droid Serif',serif;
+    font-weight: bold;
+    letter-spacing: .14rem;
+    font-size: 180%;
+    background-color: #777;
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div id="output">
+    <span style="color:#999">
+      Failed to kill Doctor Lucky? Tap the button below.
+    </span>
+  </div>
+  <button id="trigger">FAIL</button>
+</div>
+</body>
