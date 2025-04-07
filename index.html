@@ -1,5 +1,101 @@
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style type="text/css">
+/* variables */
+:root {
+  --background-dark: #121212;
+  --text-box-bg: #FFFFFF;
+  --button-bg: darkred;
+  --text-dark: #000000;
+  --text-light: #FFFFFF;
+  --border-color: crimson;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --main-font: 'Roboto', 'Open Sans', 'Noto Sans', sans-serif;
+}
+
+body {
+  background-color: var(--background-dark);
+  font-family: var(--main-font);
+  font-size: 300%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+/* Output box styling */
+#output {
+  min-height: 10em;
+  margin: 1em auto;
+  padding: 1.2em;
+  background-color: var(--text-box-bg);
+  color: var(--text-dark);
+  line-height: 1.4;
+  box-sizing: border-box;
+
+  /* Vertical and horizontal centering with column layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Rounded corners and inner shadow */
+  border-radius: 15px;
+  border: 3px solid var(--border-color);
+  box-shadow: inset 0 0 10px var(--shadow-color);
+
+  /* Smooth transitions */
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Button styling */
+#trigger {
+  height: 5em;
+  width: 100%;
+  font-size: 90%;
+  color: var(--text-light);
+  font-weight: bold;
+  background-color: var(--button-bg);
+
+  /* Rounded corners and outer shadow */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  border: none;
+  cursor: pointer;
+
+  /* Smooth transitions */
+  transition: all 0.2s ease;
+}
+
+#trigger:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  background-color: #FF5500;
+}
+
+/* For the initial placeholder text */
+#output p {
+  color: var(--border-color);
+  margin: 0.5em 0;
+  width: 100%;
+}
+
+/* Media query for better mobile responsiveness */
+@media (max-width: 768px) {
+  body {
+    font-size: 200%;
+  }
+
+  #output {
+    min-height: 12em;
+  }
+}
+</style>
 <script type="text/javascript">
 
   var reasons = [
@@ -54,63 +150,26 @@
 
   $().ready(function() {
     $("#trigger").click(function(){
-      $("#output").css({opacity: 0.04});
+      $("#output").css({opacity: 0.03});
 
       window.setTimeout(function() {
         $("#output").html(random_reason()).css({opacity: 1.0});
       }, 180);
 
-      $("#trigger").text("FAIL AGAIN");
+      $("#trigger").text("fail again");
     });
   });
 
 </script>
 
-<style type="text/css">
-  body {
-    background-color: #333;
-    font-size: 400%;
-  }
-  .container {
-    width: 89%;
-    margin: auto;
-    text-align: center;
-  }
-  #output {
-    min-height: 10em;
-    margin: 1.4em auto;
-    padding: 1.2em;
-    background-color: #ccc;
-    color: #111;
-    line-height: 1.4em;
-    box-sizing: border-box;
-    vertical-align: middle;
-    transition: opacity .2s ease-in-out;
-  }
-  #trigger {
-    height: 6em;
-    width: 100%;
-    font-size: 100%;
-    color: #222;
-    font-weight: bold;
-    letter-spacing: .14rem;
-    background-color: #777;
-    transition-duration: .2s;
-  }
-  #trigger:active {
-    transition-duration: .2s;
-    background-color: crimson;
-  }
-</style>
 </head>
 
 <body>
 <div class="container">
   <div id="output">
-    <span style="color:#999">
-      Failed to kill Doctor Lucky? Tap the button below.
-    </span>
+    <p>Failed to kill Dr. Lucky?</p>
+    <p>Tap the button below</p>
   </div>
-  <button id="trigger">FAIL</button>
+  <button id="trigger">fail</button>
 </div>
 </body>
